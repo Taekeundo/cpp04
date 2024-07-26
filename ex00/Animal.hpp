@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkwak <tkwak@student.42berlin.de>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/26 11:44:11 by tkwak             #+#    #+#             */
+/*   Updated: 2024/07/26 11:44:21 by tkwak            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
@@ -27,22 +39,36 @@
         condition (1) public scope.
         condition (2) define with 'virtual' in parent.
     
-    Derived classes(Cat & Dog) don't need to define member variable one-more time.
+    Derived classes(Cat & Dog)
+    don't need to define member variable one-more time.
     Just use parent's protected member varaible.
+
+    [ Orthodox Canonical Form ]
+    1. Default constructor
+    2. Destructor
+    3. Copy constructor
+    4. Overloaded assignment operator
+
+    [ Member function ]
+    1. getType
+
+    [ Over-riding function from parent class ]
+    1. makeSound
 */
 class   Animal
 {
     protected:
-        std::string type;                       // Inherited memver variable
+        std::string type; // Inherited memver variable
 
     public:
-        Animal();                               // Default constructor
-        virtual ~Animal();                      // Destructor
-        Animal(const Animal &rhs);              // Copy constructor
-        Animal& operator=(const Animal &rhs);   // 
+        Animal();
+        virtual ~Animal();
+        Animal(const Animal &rhs);
+        Animal& operator=(const Animal &rhs);
 
-        std::string getType() const;        // Member function
-        virtual void makeSound() const;     // Over-riding function
+        std::string getType() const;
+
+        virtual void makeSound() const;
 };
 
 #endif

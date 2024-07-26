@@ -1,7 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkwak <tkwak@student.42berlin.de>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/26 11:43:46 by tkwak             #+#    #+#             */
+/*   Updated: 2024/07/26 11:43:48 by tkwak            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 
 /*  [F]
-    Constructor
+    [ Orthodox Canonical Form ]
+    1. Default constructor
+    2. Destructor
+    3. Copy constructor
+    4. Overloaded assignment operator
 */
 Animal::Animal(void)
 {
@@ -9,26 +25,17 @@ Animal::Animal(void)
     this->type = "Animal";
 }
 
-/*  [F]
-    Destructor
-*/
 Animal::~Animal(void)
 {
     std::cout << B << "[Animal]" << EOC << " Destructor" << std::endl;
 }
 
-/*  [F]
-    Copy constructor
-*/
 Animal::Animal(const Animal &rhs)
 {
     std::cout << B << "[Animal]" << EOC << " Copy constructor" << std::endl;
     (*this) = rhs;
 }
 
-/*  [F]
-    Overloaded assignment operator
-*/
 Animal& Animal::operator=(const Animal &rhs)
 {
     std::cout << B << "[Animal]" << EOC << " Assignment operator" << std::endl;
