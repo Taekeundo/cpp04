@@ -1,44 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkwak <tkwak@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/26 09:15:32 by tkwak             #+#    #+#             */
-/*   Updated: 2024/07/26 09:15:35 by tkwak            ###   ########.fr       */
+/*   Created: 2024/07/26 11:44:33 by tkwak             #+#    #+#             */
+/*   Updated: 2024/07/26 11:44:33 by tkwak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-/*  [F]
+/*
+    'Dog' Derived class, inherits from 'Animal' class.
+
     [ Orthodox Canonical Form ]
     1. Default constructor
     2. Destructor
     3. Copy constructor
     4. Overloaded assignment operator
 
-    [ Member function ]
-    1. getIdea
-    2. setIdea
+    [ Over-riding function from parent class ]
+    1. makeSound
+
+    [ Member function]
+    1. getBrain
 */
-class Brain
+class Dog : public Animal
 {
     private:
-        std::string ideas[100];
+        Brain* m_brain;
 
     public:
-        Brain();
-        virtual ~Brain();
-        Brain(const Brain &rhs);
-        Brain& operator=(const Brain &rhs);
+        Dog();
+        ~Dog();
+        Dog(const Dog &rhs);
+        Dog& operator=(const Dog &rhs);
 
-        std::string getIdea(int n) const;
-        void setIdea(std::string idea, int n);
+        void makeSound() const;
+        Brain* getBrain(void) const;
 };
 
 #endif

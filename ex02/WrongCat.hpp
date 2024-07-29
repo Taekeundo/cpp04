@@ -1,44 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkwak <tkwak@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/26 09:15:32 by tkwak             #+#    #+#             */
-/*   Updated: 2024/07/26 09:15:35 by tkwak            ###   ########.fr       */
+/*   Created: 2024/07/26 11:44:45 by tkwak             #+#    #+#             */
+/*   Updated: 2024/07/26 11:44:46 by tkwak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-/*  [F]
+/*
+    'WrongCat' Derived class, inherits from 'WrongAnimal' class.
+
     [ Orthodox Canonical Form ]
     1. Default constructor
     2. Destructor
     3. Copy constructor
     4. Overloaded assignment operator
 
-    [ Member function ]
-    1. getIdea
-    2. setIdea
+    [ Over-riding function from parent class ]
+    1. makeSound
 */
-class Brain
+class WrongCat : public WrongAnimal
 {
-    private:
-        std::string ideas[100];
-
     public:
-        Brain();
-        virtual ~Brain();
-        Brain(const Brain &rhs);
-        Brain& operator=(const Brain &rhs);
+        WrongCat();
+        ~WrongCat();
+        WrongCat(const WrongCat &rhs);
+        WrongCat& operator=(const WrongCat &rhs);
 
-        std::string getIdea(int n) const;
-        void setIdea(std::string idea, int n);
+        void makeSound() const;
 };
 
 #endif
